@@ -1,10 +1,10 @@
 # Transaction Nedir?
   Transaction, veritabanındaki kümülatif işlemleri atomik bir şekilde gerçekleştirmemizi sağlayan bir özelliktir.
-  Bir transaction içerisindkei tüm işlemler commit edildiği taktirde veritabanına fiziksel olarak yansıtılacaktır. Ya da rollback edilirse tüm işlemler geri alınacak ve fiziksel olarak veritabanında herhangi bir verisel değişiklik durumu söz konusu olmayacaktır.
-  Transaction'ın genel amacı veritabanındaki tutarlılık durumunu korumaktadır. Ya da bir başka deyişle verityabanındaki tutarsızlık durumlarına karşı önlem almaktır.
+  Bir transaction içerisindeki tüm işlemler commit edildiği taktirde veritabanına fiziksel olarak yansıtılacaktır. Ya da rollback edilirse tüm işlemler geri alınacak ve fiziksel olarak veritabanında herhangi bir verisel değişiklik durumu söz konusu olmayacaktır.
+  Transaction'ın genel amacı veritabanındaki tutarlılık durumunu korumaktadır. Ya da bir başka deyişle veritabanındaki tutarsızlık durumlarına karşı önlem almaktır.
 
 # Default Transaction Davranışı
-  EF Core'da varsayılan olarak, yapılan tüm işlemler SaveChanges fonksiyuyla veritabanına fiziksel olarak uygulanır. 
+  EF Core'da varsayılan olarak, yapılan tüm işlemler SaveChanges fonksiyonuyla veritabanına fiziksel olarak uygulanır. 
   Çünkü SaveChanges default olarak bir trasncationa sahiptir.
   Eğer ki bu süreçte bir problem/hata/başarısızlık durumu söz konusu olursa tüm işlemler geri alınır(rollback) ve işlemlerin hiçbiri veritabanına uygulanmaz.
   Böylece SaveChanges tüm işlemlerin ya tamamen başarılı olacağını ya da bir hata oluşursa veritabanını değiştirmeden işlemleri sonlandıracağını ifade etmektedir.
@@ -20,12 +20,12 @@
 
 # Savepoints
   EF Core 5.0 sürümüyle gelmiştir.
-  Savepoints, veritabanıu işlemleri sürecinde bir hata oluşursa veya başka bir nedenle yapılan işlemlerin geri alınması gerekiyorsa transaciton içerisinde dönüş yapılabilecek noktaları ifade eden bir özelliktir.
+  Savepoints, veritabanı işlemleri sürecinde bir hata oluşursa veya başka bir nedenle yapılan işlemlerin geri alınması gerekiyorsa transaciton içerisinde dönüş yapılabilecek noktaları ifade eden bir özelliktir.
 # CreateSavepoint
   Transaction içerisinde geri dönüş noktası oluşturmamızı sağlayan bir fonksiyondur.
 
 # RollbackToSavepoint
-  Transacction içerisinde herhangi bir geri dönüş noktasına(Savepoint'e) rollback yapmamızı sağlayan fonksiyondur.
+  Transaction içerisinde herhangi bir geri dönüş noktasına(Savepoint'e) rollback yapmamızı sağlayan fonksiyondur.
 
 
     Savepoints özelliği bir transaction içerisinde istenildiği kadar kullanılabilir.
